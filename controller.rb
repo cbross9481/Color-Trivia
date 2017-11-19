@@ -5,11 +5,17 @@ get '/' do
 	erb :index
 end
 
+post '/' do 
+	p @rolled_color = params[:rolled_color]
+	redirect '/'
+end 
+
 get '/question' do 
-	@new_question = Object.new
-	@question1 = @new_question.random_questions
-	@question2 = @new_question.random_questions
-	@question3 = @new_question.random_questions
-	@question4 = @new_question.random_questions
+	@new = Object.new
+	@list_of_questions = @new.random_questions
+	@question1 = @list_of_questions[0]
+	@question2 = @list_of_questions[1]
+	@question3 = @list_of_questions[2]
+	@question4 = @list_of_questions[3]
 	erb :form	
 end 

@@ -32,9 +32,24 @@ class Object
   end 
 
   def random_questions
-    random = rand(0...29)
     @all = ["The color of non green grapes", "Big friendly dinasour you watched as a kid", "Violet is a mix between blue and this color", "Daphne from Scooby Doo dressed in this", "Song by Prince","The color of the ocean", "The color of the sky", "Dory from Finding Nemo", "Food ingredient delivery service", "Penn State Lives Here","The color representing gardening", "The fourth color of the rainbow", "The color of peas", "The black superhero from the Justice League", "The color of Money","The color of the sun", "The color of dandelions", "The brightest color of the rainbow", "Song written by Coldplay", "Rhymes with Hello","Not just a color but a fruit", "Nothing rhymes with this color", "Netherlands' soccer team wear this color", "Color of the jersey shore inhabitants", "Second color of the rainbow","The first color of the rainbow", "The American flag consist of white, blue and this color", "Roses are this color", "Marvel comic's background color is this", "There will be blood"]
-    return @all[random]
-  end
+    
+    number_select = []
+    questions = []
+    
+    until number_select.length == 4
+      random = rand(0...29)
+      if (number_select.include? random) == false 
+        number_select << random
+      end 
+    end
+
+    number_select.each do |x|
+      questions << @all[x]
+    end 
+    
+    return questions
+    
+end
   
 end 

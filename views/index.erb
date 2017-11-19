@@ -5,108 +5,14 @@
 <div id="color_box">
 </div><br><br>		
 <div id="button_box">
+	<form id="color_form" method="post" target="frame">
+</form>
 </div><br><br>		
 <div id="question_box">
 </div>
-
-<script>
-var count; var stop; var change; var box; var roll_button; var button; var button_2; var message; var text; var question; var button_box = document.getElementById("button_box");
-
-function color_roll(){
-	roll_button = document.getElementById("roll_button")
-	roll_button.style.display = "none"
-	box = document.getElementById("color_box");
-	change = setInterval(color,250)
-	stop = (Math.floor(Math.random() * 18))+1
-	// stop = 16
-	count = 1
-}
-
-function color(){
-	var array = ["red","orange","yellow","green","blue","purple","red","orange","yellow","green","blue","purple","red","orange","yellow","green","blue","purple"] 		
-		box.style.backgroundColor = array[count];
-		count += 1;
-	console.log(stop)
-	if (count == stop){
-		clearInterval(change);
-		create_buttons();
-		color_selection();
-		}	
-}
-
-function color_selection(){
-	if (count === 1 || count === 7 || count === 13){
-		message = document.getElementById("message");
-		text = document.createTextNode("You rolled a Red!");
-		message.appendChild(text);
-	}
-	else if (count === 2 || count === 8 || count === 14){
-		message = document.getElementById("message");
-		text = document.createTextNode("You rolled an Orange!");
-		message.appendChild(text);
-	}
-	else if (count === 3 || count === 9 || count === 15){
-		message = document.getElementById("message");
-		text = document.createTextNode("You rolled a Yellow!");
-		message.appendChild(text);
-	}
-	else if (count === 4 || count === 10 || count === 16){
-		message = document.getElementById("message");
-		text = document.createTextNode("You rolled a Green!");
-		message.appendChild(text);
-	}
-	else if (count === 5 || count === 11 || count === 17){
-		message = document.getElementById("message");
-		text = document.createTextNode("You rolled a Blue!");
-		message.appendChild(text);
-	}
-	else if (count === 6 || count === 12 || count === 18){
-		message = document.getElementById("message");
-		text = document.createTextNode("You rolled a Purple!");
-		message.appendChild(text);
-	}
-}
-
-function helper(){
-	remove();		
-	color_roll();
-}
-
-function create_buttons(){
-	button = document.createElement("input");
-	button_2 = document.createElement("input");
-	button.type = "button";
-	button_2.type = "button";
-	button.value = "Choose Color";
-	button_2.value = "Roll Again";
-	button.setAttribute("onClick","display()")
-	button_2.setAttribute("onClick","helper()");
-	button_box = document.getElementById("button_box");
-	button_box.appendChild(button);
-	button_box.appendChild(button_2);
-}
-
-function remove(){
-	button_box = document.getElementById("button_box");
-	button_box.removeChild(button);
-	button_box.removeChild(button_2);
-	message.removeChild(text);
-}
-
-//Create JSON objects for trivia questions
-var object = JSON.parse('{"red":"Three trivia questions will appear here"}')
-
-function display(){
-	remove();
-	var xhttp = new XMLHttpRequest();
-	xhttp.onreadystatechange = function(){
-		if (this.readyState == 4 && this.status == 200) {
-			document.getElementById("question_box").innerHTML = this.responseText;
-		}
-	};
-	xhttp.open('GET','/question',true);
-	xhttp.send();
-}
+<script src="/script.js" type="text/javascript">
 </script>
+<iframe id="frame" name="frame"></iframe>
+
 
 
