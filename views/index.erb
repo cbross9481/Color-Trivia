@@ -97,13 +97,14 @@ function remove(){
 var object = JSON.parse('{"red":"Three trivia questions will appear here"}')
 
 function display(){
+	remove();
 	var xhttp = new XMLHttpRequest();
 	xhttp.onreadystatechange = function(){
 		if (this.readyState == 4 && this.status == 200) {
 			document.getElementById("question_box").innerHTML = this.responseText;
 		}
 	};
-	xhttp.open("GET","form",true);
+	xhttp.open('GET','/question',true);
 	xhttp.send();
 }
 </script>
