@@ -6,6 +6,7 @@ function color_roll(){
 	box = document.getElementById("color_box");
 	change = setInterval(color,250)
 	stop = (Math.floor(Math.random() * 18))+1
+	// stop = 7
 	count = 1
 }
 
