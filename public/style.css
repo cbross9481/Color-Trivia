@@ -1,0 +1,9 @@
+body{
+	width: 1000px;
+    margin: 0 auto;
+}
+#color_box{
+	width: 400px;
+	height: 400px;
+	background-color: white;
+}
