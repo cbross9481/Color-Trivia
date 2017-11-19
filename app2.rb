@@ -10,17 +10,17 @@ class NewClass
 
   def method_selection
   	if @color == "red"
-  		p red 
+  		red 
   	elsif @color == "orange"
-  		p orange
+  		orange
   	elsif @color == "yellow"
-  		p yellow
+  		yellow
   	elsif @color == "green"
-  		p green
+  		green
  	elsif @color == "blue"
-  		p blue
+  		blue
   	elsif @color == "purple"
-  		p purple
+  		 purple
   	end 
   end 
 
@@ -60,7 +60,7 @@ class NewClass
     number_select = []
     questions = []
     
-    until number_select.length == 4
+    until number_select.length == 3
       random = rand(0...29)
       if (number_select.include? random) == false 
         number_select << random
