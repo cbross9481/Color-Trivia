@@ -97,9 +97,14 @@ function remove(){
 var object = JSON.parse('{"red":"Three trivia questions will appear here"}')
 
 function display(){
-	question = document.getElementById("question_box");
-	text = document.createTextNode(object.red);
-	question.appendChild(text);
+	var xhttp = new XMLHttpRequest();
+	xhttp.onreadystatechange = function(){
+		if (this.readyState == 4 && this.status == 200) {
+			document.getElementById("question_box").innerHTML = this.responseText;
+		}
+	};
+	xhttp.open("GET","form",true);
+	xhttp.send();
 }
 </script>
 
