@@ -1,3 +1,5 @@
+require 'csv'
+
 class Object 
   attr_reader :y, :x, :color
   
@@ -6,11 +8,20 @@ class Object
     @x = roll.length
     @y = rand(0...x)
     @color = color
+    CSV.foreach("questions.csv", headers: true, header_converters: :symbol) do |csv|
+      @array << csv
+    end 
   end 
   
   def red
-    @question = ["The first color of the rainbow", "The American flag consist of white, blue and this color", "Roses are this color", "Marvel comic's background color is this", "There will be blood"]
-  end
+    @question = Array.new
+    @array.each do |x|
+      if x[:color] == "red"
+        @question << x[:quetion]
+      end 
+    end
+    p @question
+  end 
   
   def orange
     @question = ["Not just a color but a fruit", "Nothing rhymes with this color", "Netherlands' soccer team wear this color", "Color of the jersey shore inhabitants", "Second color of the rainbow"]
