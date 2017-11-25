@@ -1,4 +1,4 @@
-var colorize; var count; var stop; var change; var box; var roll_button; var button; var button_2; var message; var text; var question; var button_box = document.getElementById("button_box");
+var evaluate; var list; var bullet; var colorize; var count; var stop; var change; var box; var roll_button; var button; var button_2; var message; var text; var question; var button_box = document.getElementById("button_box");
 
 function color_roll(){
 	roll_button = document.getElementById("roll_button")
@@ -7,7 +7,7 @@ function color_roll(){
 	change = setInterval(color,250)
 	stop = (Math.floor(Math.random() * 18))+1
 	// stop = 7
-	count = 1
+	count = 0
 }
 
 function color(){
@@ -76,6 +76,24 @@ function display(){
 	};
 	xhttp.open('GET','/question',true);
 	xhttp.send();
+	document.getElementById("question_box").style.display = "block";
+}		
+
+function hello(){
+	console.log("hello world")
+}
+
+function display_result(){
+	// remove();
+	document.getElementById("submit").style.display = "none"
+	var xhttp = new XMLHttpRequest();
+	xhttp.onreadystatechange = function(){
+		if (this.readyState == 4 && this.status == 200) {
+			document.getElementById("results").innerHTML = this.responseText;
+		}
+	};
+	xhttp.open('GET','/test',true);
+	xhttp.send();
 }
 
 function rolled_color(){
@@ -91,4 +109,30 @@ function rolled_color(){
 	form.appendChild(submit)
 	document.forms['color_form'].submit();
 	// display();
+}
+
+function add_bullet(){
+	document.getElementById("test").style.display = "none"
+	document.getElementById("evaluate_button").style.display = "none"
+	document.getElementById("question_box").style.display = "none"
+	evaluate = document.getElementById("value_input").value
+	bullet = document.createElement("li")
+	canvas = document.createElement("canvas")
+	var ctx = canvas.getContext("2d")
+	list = document.getElementById("list")
+	// list.style.list-style-type: none
+	canvas.width = 50
+	canvas.height = 50
+	// canvas.style.border = "2px solid black"
+	canvas.style.backgroundColor = colorize
+	// canvas.appendChild(document.createTextNode("test"))
+	if (evaluate == "You're Correct!"){
+		bullet.appendChild(canvas);
+		list.appendChild(bullet);
+	}
+	color_roll();
+}
+
+function response_function(){
+	console.log("Hello world")
 }

@@ -1,4 +1,4 @@
-require 'csv'# 
+require 'csv'
 require_relative 'app2'
 class Object 
 	def test

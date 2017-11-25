@@ -4,8 +4,6 @@ class NewClass
   attr_reader :y, :x, :color, :array
   
   def initialize(color)
-    # roll = [0,1,2,3,4] 
-    # @x = roll.length
     @y = rand(0...5)
     @color = color
     @array = Array.new
@@ -37,7 +35,7 @@ class NewClass
         @question << x[:question] 
       end    
     end
-    p @question[@y]
+    return @question[@y]
   end
   
   def orange
@@ -96,7 +94,7 @@ class NewClass
       @all << x[:question]
     end 
 
-    p @all
+    @all
     
     number_select = []
     questions = []

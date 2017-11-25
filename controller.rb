@@ -1,5 +1,4 @@
 require 'sinatra'
-# require_relative 'app'
 require_relative 'app2'
 
 configure do
@@ -15,9 +14,10 @@ end
 
 post '/' do 
 	@new = NewClass.new(params[:rolled_color])
+	session[:rolled_color] = params[:rolled_color] 
 	@correct_question = @new.method_selection
 	@other_question = @new.random_questions
-	session[:correct_answer] = @correct_question
+	p session[:correct_answer] = @correct_question
 	session[:other_question] = @other_question
 	redirect '/'
 end 
@@ -35,18 +35,26 @@ end
 
 post '/question' do
 	# "Hello World"
-	response = params[:color_choice]
+	p response = params[:color_choice]
 	# p @response
 	session[:correct_answer]
 	if response == session[:correct_answer]
-		p session[:response] = "You're Correct!"
+		session[:response] = "You're Correct!"
 	else 
-		p session[:response] = "You're incorrect"
-	end
-	redirect '/result'
+		session[:response] = "You're incorrect"
+	end		
+	p session[:response]
+	redirect '/test'
 end 
 
-get '/result' do 
-	p @answer_check = session[:response]
+# get '/result' do 
+# 	p @test= session[:response]
+# 	erb :show
+# end 
+
+get '/test' do 
+	p session[:rolled_color]
+	@test = session[:response]
+	# sleep 2 
 	erb :show
 end 

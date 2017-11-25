@@ -10,3 +10,24 @@ body{
 #frame{
 	display: none;
 }
+#score_box{
+	/*border: 3px solid black;*/
+	height: 300px;
+	width: 100px;
+	position: relative;
+	display: inline-block;
+	left: 400px;
+}
+li{
+	list-style-type: none;
+}
+#play_again{
+	position: inline;
+	left: 200px;
+}
+#color_input{
+	display:none;
+}
+#value_input{
+	display:none;
+}

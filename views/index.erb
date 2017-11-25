@@ -3,6 +3,11 @@
 </div>
 <button id="roll_button" onclick="color_roll()">Color Roll</button><br><br>
 <div id="color_box">
+	<div id="score_box">
+		<ul id="list" style="list-style-type: none">
+			<%= erb :token %>
+		</ul>
+	</div>
 </div><br><br>		
 <div id="button_box">
 	<form id="color_form" method="post" target="frame">
@@ -10,9 +15,10 @@
 </div><br><br>		
 <div id="question_box">
 </div>
+<div id="results">
+</div>
 <script src="/script.js" type="text/javascript">
 </script>
 <iframe id="frame" name="frame"></iframe>
-
 
 
