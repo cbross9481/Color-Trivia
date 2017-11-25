@@ -19,7 +19,6 @@ post '/' do
 	@other_question = @new.random_questions
 	p session[:correct_answer] = @correct_question
 	session[:other_question] = @other_question
-	redirect '/'
 end 
 
 get '/question' do

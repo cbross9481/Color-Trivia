@@ -76,7 +76,7 @@ function display(){
 	};
 	xhttp.open('GET','/question',true);
 	xhttp.send();
-	document.getElementById("question_box").style.display = "block";
+	document.getElementById("question_box").style.display = "block"
 }		
 
 function hello(){
@@ -136,3 +136,7 @@ function add_bullet(){
 function response_function(){
 	console.log("Hello world")
 }
+
+// function say_words(){
+// 	console.log("sjhig")
+// }

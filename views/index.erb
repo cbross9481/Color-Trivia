@@ -1,24 +1,33 @@
-<h1>Play Color Trivia</h1>
-<div id="message">
-</div>
-<button id="roll_button" onclick="color_roll()">Color Roll</button><br><br>
-<div id="color_box">
-	<div id="score_box">
-		<ul id="list" style="list-style-type: none">
-			<%= erb :token %>
-		</ul>
+<body>
+	<h1>Play Color Trivia</h1>
+	<div id="message">
 	</div>
-</div><br><br>		
-<div id="button_box">
-	<form id="color_form" method="post" target="frame">
-</form>
-</div><br><br>		
-<div id="question_box">
-</div>
-<div id="results">
-</div>
-<script src="/script.js" type="text/javascript">
-</script>
-<iframe id="frame" name="frame"></iframe>
+	<button id="roll_button" onclick="color_roll()">Color Roll</button><br><br>
+	<div id="color_box">
+		<div id="score_box">
+			<ul id="list" style="list-style-type: none">
+				<%= erb :token %>
+			</ul>
+		</div>
+	</div><br><br>		
+	<div id="button_box">
+		<form id="color_form" method="post" target="frame">
+	</form>
+	</div><br><br>		
+	<div id="question_box">
+	</div>
+	<div id="results">
+	</div>
+	<script src="http://code.responsivevoice.org/responsivevoice.js">
+	</script>
+	<script src="/script.js" type="text/javascript">
+	</script>
+	<script>
+		this.window.onload = function greeting(){
+			responsiveVoice.speak("Welcome to Color Trivia. Choose a color");
+		}
+	</script>
+	<iframe id="frame" name="frame"></iframe>
+</body>
 
 
